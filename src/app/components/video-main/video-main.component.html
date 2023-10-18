@@ -1,0 +1,78 @@
+<div class="container mx-auto mt-4">
+    <div class="flex justify-end items-center space-x-1 mb-4">
+        <div 
+          class="py-2 px-4 border-round-lg rounded-lg cursor-pointer icon-hover"
+          (click)="toggleView('grid')"
+        >
+          <mat-icon class="apps-icon" svgIcon="apps"></mat-icon>
+        </div>
+        <div 
+          class="py-2 px-4 border-round-lg rounded-lg cursor-pointer icon-hover"
+          (click)="toggleView('list')"
+        >
+          <mat-icon class="list-icon" svgIcon="list"></mat-icon>
+        </div>
+      </div>
+
+      <div [ngSwitch]="activeView">
+        <div *ngSwitchCase="'grid'">
+            <div class="grid grid-cols-3">
+                <ng-container *ngFor="let video of allVideo">
+                    <div 
+                    class="card w-auto md:w-1/2 lg:w-3/3 cursor-pointer mb-5"
+                    (click)="onDetailVideo(video.id)"
+                    >
+                        <div>
+                            <img 
+                            [alt]="video.title"
+                            [src]="video.previewUrl"
+                            class="w-auto h-16rem"
+                            />
+                        </div>
+                        <div class="px-2">   
+                            <h4>{{ video.title }}</h4>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <span class="text-xs text-slate-300">{{ video.createdDate | date : "mm/dd/yyy" }}</span>
+                                </div>
+                            <div class="flex items-center">
+                                    <img class="h-6 rounded-full mr-1 cus-pr"  [src]="video.author.pictureUrl" />
+                                    <span>{{ video.author.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div *ngSwitchCase="'list'">
+            <div class="flex flex-col">
+              <ng-container *ngFor="let video of allVideo">
+                <div class="mb-4">
+                  <div class="flex space-y-2">
+                    <div class="w-36">
+                      <img 
+                        [alt]="video.title"
+                        [src]="video.previewUrl"
+                        class="h-32 w-full"
+                      />
+                    </div>
+                    <div class="w-full flex justify-between items-center">
+                      <div>
+                        <h4 class="text-center mb-2">{{ video.title }}</h4>
+                      </div>
+                      <div class="flex items-center">
+                        <div class="text-xs text-slate-300 pr-20">{{ video.createdDate | date : "MM/dd/yyyy" }}</div>
+                        <img class="h-6 rounded-full" [src]="video.author.pictureUrl" />
+                        <span>{{ video.author.name }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+</div>
+
+
+

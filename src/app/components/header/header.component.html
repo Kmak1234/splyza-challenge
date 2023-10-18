@@ -1,0 +1,11 @@
+<mat-toolbar class="header-color font-color grid grid-cols-2 gap-4 place-content-between">
+        <div class="pl-2 w-20" [routerLink]="['/']" class="cursor-pointer">
+            <img src="../../../assets/splyza/logo1.png" alt="splyza-logo"/>
+        </div>
+        <div class="flex justify-between items-center">
+            <ng-container *ngIf="logInUser">
+                <img class="h-6 rounded-full" [src]="logInUser.pictureUrl" />
+                <span class="pl-2 text-sm">{{ logInUser.name }}</span>
+            </ng-container>
+        </div>
+</mat-toolbar>

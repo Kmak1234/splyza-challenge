@@ -1,0 +1,42 @@
+<div class="container mx-auto w-1/2">
+    <ng-container *ngIf="videoDetails && loggedInUserDetails && !videoTitleUpdated">
+      <div class="flex mb-5 space-x-3" *ngIf="videoDetails.author.id == loggedInUserDetails.id">
+        <div class="w-full">
+            <input type="text"  class="w-full" label="ddddd">
+            <p>dsadsads</p>
+        </div>
+      </div>
+    </ng-container>
+  
+    <ng-container *ngIf="videoTitleUpdated">
+      <h3>{{ videoDetails.title }}</h3>
+    </ng-container>
+  
+    <ng-container *ngIf="videoDetails">
+      <video #videoPlayer class="w-full h-4rem mb-4" controls>
+        <source [src]="videoDetails?.url" type="video/mp4" />
+      </video>
+    </ng-container>
+  
+    <div class="flex justify-between">
+      <div class="flex space-x-3">
+        <button mat-raised-button>
+            <mat-icon>camera_enhance</mat-icon>
+            SnapShot
+        </button>
+        <button mat-raised-button>
+            <mat-icon>stars</mat-icon>
+            Star
+        </button>
+      </div>
+  
+      <ng-container *ngIf="loggedInUserDetails">
+        <div class="flex items-center space-x-1">
+          <img [src]="loggedInUserDetails.pictureUrl" class="h-6 rounded-full mr-1 cus-pr" shape="circle">
+          <span>{{ loggedInUserDetails.name }}</span>
+        </div>
+      </ng-container>
+      
+    </div>
+  
+  </div>

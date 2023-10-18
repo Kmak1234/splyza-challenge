@@ -1,0 +1,16 @@
+mat-grid-tile {
+    background-color: lightblue;
+}
+.cus-pt {
+    padding-left: 83px;
+}
+.cus-pr {
+    padding-right: 5px;
+}
+
+.icon-size {
+    font-size: 14px;
+}
+.icon-hover:hover {
+    background-color: #efefef;
+  }
