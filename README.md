@@ -1,5 +1,10 @@
 # splyzaVideo
 
+1. npm i to install rest of the package
+2. npm start to start the application
+
+3. the backend is connected to a mockup  splyza challenge
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
 ## Development server
@@ -14,4 +19,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Not yet finished yet
